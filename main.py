@@ -3,12 +3,16 @@ import string
 
 
 def get_text():
+    global writed
+    writed = True
     print("\nВведите текст")
     txt = str(input())
     return txt
 
 
 def gen_text():
+    global writed
+    writed = True
     print("\nВведите длинну текста")
     len_txt = int(input())
     all_symbols = string.ascii_uppercase + " "
@@ -17,6 +21,8 @@ def gen_text():
 
 
 def palindrome(text):
+    global chandeg
+    chandeg = True
     list_of_words = text.split()
     answer = []
     for word in list_of_words:
@@ -32,29 +38,41 @@ def result(ans):
         print(ans)
 
 
-def text_writed():
-    pass
+def text_writed(txt):
+    if txt != "":
+        return True
+    else:
+        return False
 
 
 def text_changed():
     pass
 
 
-
 if __name__ == "__main__":
     text = ""
     ans = []
+    writed = False
+    chandeg = False
     while True:
         print("Выберете пункт меню\n1. Ввод исходных данных вручную\n2. Ввод исходных данных сгенерированных случайным образом\n3. Выполнение алгоритма по заданию\n4. Вывод резульата\n5. Завершение работы программы")
         x = int(input())
         if x == 1:
             text = get_text()
+            chandeg = False
         elif x == 2:
             text = gen_text()
+            chandeg = False
         elif x == 3:
-            ans = palindrome(text)
+            if writed:
+                ans = palindrome(text)
+            else:
+                print("Сначала введите текст")
         elif x == 4:
-            result(ans)
+            if writed:
+                result(ans)
+            else:
+                print("Сначала проверьте текст на палиндромы")
         elif x == 5:
             exit()
         else:
