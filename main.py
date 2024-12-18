@@ -32,7 +32,7 @@ def palindrome(text):
 
 
 def result(ans):
-    if ans == []:
+    if not ans:
         print("Паллиндромов не обнаруженно")
     else:
         print(ans)
@@ -45,17 +45,14 @@ def text_writed(txt):
         return False
 
 
-def text_changed():
-    pass
-
-
 if __name__ == "__main__":
     text = ""
     ans = []
     writed = False
     chandeg = False
     while True:
-        print("Выберете пункт меню\n1. Ввод исходных данных вручную\n2. Ввод исходных данных сгенерированных случайным образом\n3. Выполнение алгоритма по заданию\n4. Вывод резульата\n5. Завершение работы программы")
+        print(
+            "Выберете пункт меню\n1. Ввод исходных данных вручную\n2. Ввод исходных данных сгенерированных случайным образом\n3. Выполнение алгоритма по заданию\n4. Вывод резульата\n5. Завершение работы программы")
         x = int(input())
         if x == 1:
             text = get_text()
@@ -69,7 +66,7 @@ if __name__ == "__main__":
             else:
                 print("Сначала введите текст")
         elif x == 4:
-            if writed:
+            if chandeg:
                 result(ans)
             else:
                 print("Сначала проверьте текст на палиндромы")
